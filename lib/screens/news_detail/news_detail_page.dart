@@ -32,7 +32,7 @@ class _NewsDetailPageState extends State<NewsDetailPage> {
         controller: _scrollController,
         slivers: <Widget>[
           SliverAppBar(
-            brightness: Brightness.light,
+            brightness: Brightness.dark,
             elevation: 0,
             iconTheme:
                 IconThemeData(color: _isExpanded ? Colors.black : Colors.white),
@@ -60,9 +60,28 @@ class _NewsDetailPageState extends State<NewsDetailPage> {
             delegate: SliverChildListDelegate(<Widget>[
               Container(
                 color: Colors.white,
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Text(widget.news.title),
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Text(
+                        widget.news.title,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                    ),
+                    Divider(
+                      height: 2,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 20,
+                        right: 20,
+                        top: 10,
+                      ),
+                      child: Text(widget.news.content),
+                    ),
+                  ],
                 ),
               )
             ]),
