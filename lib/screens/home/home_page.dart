@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:news_reader/data/news.dart';
 import 'package:news_reader/screens/home/widgets/news_card.dart';
 import 'package:news_reader/screens/news_detail/news_detail_page.dart';
@@ -11,6 +14,15 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int pageIndex = 0;
   List<News> news = List<News>();
+  File _image;
+
+  Future getImage() async {
+    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+
+    setState(() {
+      _image = image;
+    });
+  }
 
   @override
   void initState() {
@@ -50,11 +62,18 @@ class _HomePageState extends State<HomePage> {
         actions: <Widget>[
           Container(
             padding: const EdgeInsets.only(right: 20),
-            child: Center(
-              child: CircleAvatar(
-                backgroundColor: Colors.grey,
-                backgroundImage: NetworkImage(
-                    'https://png.pngtree.com/element_origin_min_pic/16/11/15/89a1f35d71139a37bb3fe572a954f2f8.jpg'),
+            child: GestureDetector(
+              onTap: () {
+                getImage();
+              },
+              child: Center(
+                child: CircleAvatar(
+                  backgroundColor: Colors.grey,
+                  backgroundImage: _image != null
+                      ? Image.file(_image).image
+                      : NetworkImage(
+                          'https://png.pngtree.com/element_origin_min_pic/16/11/15/89a1f35d71139a37bb3fe572a954f2f8.jpg'),
+                ),
               ),
             ),
           )
