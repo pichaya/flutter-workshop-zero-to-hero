@@ -4,8 +4,8 @@ import 'package:news_reader/news_reader_app.dart';
 
 void main() {
   Config config = Config(
-    appName: 'News',
-    flavorName: 'production',
+    appName: 'News Dev',
+    flavorName: 'development',
   );
   runApp(NewsReaderApp(config));
 }
