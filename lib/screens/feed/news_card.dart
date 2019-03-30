@@ -18,7 +18,7 @@ class NewsCard extends StatelessWidget {
                 width: double.infinity,
                 height: MediaQuery.of(context).size.width * 1.5 / 3,
                 child: Image.network(
-                  news.cover,
+                  news.urlToImage,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -44,7 +44,7 @@ class NewsCard extends StatelessWidget {
                       left: 20,
                       bottom: 10,
                     ),
-                    child: Text(news.createAt.toString()),
+                    child: Text(news.publishedAt),
                   ),
                 ),
                 IconButton(

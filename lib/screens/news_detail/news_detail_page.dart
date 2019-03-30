@@ -46,7 +46,7 @@ class _NewsDetailPageState extends State<NewsDetailPage> {
                     children: <Widget>[
                       Expanded(
                         child: Image.network(
-                          widget.news.cover,
+                          widget.news.urlToImage,
                           fit: BoxFit.cover,
                         ),
                       )
