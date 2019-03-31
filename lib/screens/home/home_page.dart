@@ -2,7 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:news_reader/screens/feed/widgets/feed_page.dart';
+import 'package:news_reader/screens/favorites/favorites_page.dart';
+import 'package:news_reader/screens/feed/feed_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -59,7 +60,9 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      body: pageIndex == 1 ? FeedPage() : Container(),
+      body: pageIndex == 1
+          ? FeedPage()
+          : pageIndex == 2 ? FavoritesPage() : Container(),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         items: <BottomNavigationBarItem>[

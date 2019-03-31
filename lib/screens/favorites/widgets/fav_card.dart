@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:news_reader/data/news.dart';
+import 'package:news_reader/data/favorite_news.dart';
 
-class NewsCard extends StatelessWidget {
-  NewsCard(this.news);
+class FavCard extends StatelessWidget {
+  FavCard(this.favNews);
 
-  final News news;
+  final FavoriteNews favNews;
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
@@ -18,40 +19,21 @@ class NewsCard extends StatelessWidget {
                 width: double.infinity,
                 height: MediaQuery.of(context).size.width * 1.5 / 3,
                 child: Image.network(
-                  news.urlToImage,
+                  favNews.cover,
                   fit: BoxFit.cover,
                 ),
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20, top: 8),
+            padding:
+                const EdgeInsets.only(left: 20, right: 20, top: 8, bottom: 8),
             child: Text(
-              news.title,
+              favNews.title,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
               ),
-            ),
-          ),
-          Center(
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                      top: 10,
-                      left: 20,
-                      bottom: 10,
-                    ),
-                    child: Text(news.publishedAt),
-                  ),
-                ),
-                IconButton(
-                  icon: Icon(Icons.more_vert),
-                  onPressed: () {},
-                )
-              ],
             ),
           ),
         ],
