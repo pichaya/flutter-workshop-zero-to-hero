@@ -10,11 +10,5 @@ void main() {
     appName: 'News',
     flavorName: 'production',
   );
-  runApp(ScopedModel<FavoritesModel>(
-    model: FavoritesModel(),
-    child: ScopedModel<HeadlineModel>(
-      model: HeadlineModel(),
-      child: NewsReaderApp(config),
-    ),
-  ));
+  runApp(NewsReaderApp(config));
 }
