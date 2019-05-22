@@ -15,7 +15,9 @@ class _FeedPageState extends State<FeedPage> {
   void initState() {
     super.initState();
     HeadlineModel headlineModel = ScopedModel.of<HeadlineModel>(context);
-    headlineModel.fetchNews();
+    if (headlineModel.newsList.isEmpty) {
+      headlineModel.fetchNews();
+    }
   }
 
   @override
