@@ -2,32 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:news_reader/configs/config.dart';
 import 'package:news_reader/models/headline_model.dart';
 import 'package:news_reader/screens/home/home_page.dart';
-import 'package:scoped_model/scoped_model.dart';
+import 'package:provider/provider.dart';
 
-class NewsReaderApp extends StatefulWidget {
+class NewsReaderApp extends StatelessWidget {
   NewsReaderApp(this._config);
 
   final Config _config;
 
   @override
-  _NewsReaderAppState createState() => _NewsReaderAppState();
-}
-
-class _NewsReaderAppState extends State<NewsReaderApp> {
-  HeadlineModel headlineModel;
-
-  @override
-  void initState() {
-    headlineModel = HeadlineModel();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return ScopedModel<HeadlineModel>(
-      model: headlineModel,
+    return Provider<HeadlineModel>(
+      builder: (_) => HeadlineModel(),
       child: MaterialApp(
-        title: widget._config.appName,
+        title: _config.appName,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
