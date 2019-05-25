@@ -19,19 +19,19 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     news.add(News(
       cover:
-          'https://cdn.theatlantic.com/assets/media/img/mt/2019/03/RTR483UO/lead_720_405.jpg?mod=1553029196',
-      title: 'How Thailand Became the World’s Last Military Dictatorship',
+          'https://cdn.mos.cms.futurecdn.net/vHdvWTgFUsVq7r73rVPPh6-970-80.jpg',
+      title: 'Huawei ban: the global fallout explained [Updated]',
       content:
-          "If military dictatorship is defined in the strictest sense as the rule of a junta or military officer who comes to power through a coup and then doesn’t hold elections to offer a veneer of legitimacy, then Thailand is the world’s last military dictatorship. \nIt seems difficult to believe that such a peaceful, thriving country that welcomes millions of tourists each year is in fact a military dictatorship, let alone the last one. Yet Thailand has been through so many military coups that they almost have a business-as-usual feel to them. The reality of army rule in the country is that it is, in a political sense, thoroughly unremarkable, reliant on a familiar mix of repression and political control, with one key difference: It has the blessings of a powerful protector.",
+          "Huawei has found itself at the center of a global tussle between the US and China after Trump administration placed the Chinese brand on the ‘entity list’, limiting the business US companies could do with it.",
       createAt: DateTime.now(),
     ));
     news.add(News(
       cover:
-          'https://static01.nyt.com/images/2019/03/29/us/politics/29dc-TRUMP-01/merlin_152739000_7365789a-a69f-4a0d-a4a2-0ecba5372db6-superJumbo.jpg?quality=90&auto=webp',
+          'https://cdn.mos.cms.futurecdn.net/LzBAUxudHEegMhNd9ynPbV-970-80.jpg',
       title:
-          'Trump Threatens to Close Mexican Border Next Week Over Immigration',
+          'Apple improved the 2019 MacBook Pro keyboards after all, iFixit uncovers',
       content:
-          'Lake Okeechobee, Fla. — President Trump on Friday called on Mexico to stop all illegal immigration, escalating a repeated threat by adding a timeline: Mr. Trump said he would close large swaths or all of the southern border as early as “next week” if the Mexican government did not "immediately” stop all undocumented migrants.',
+          'Apple didn’t just improve the processors within its existing MacBook Pro models, but apparently the company has also improved the keyboards that these refreshed laptops offer, teardown site iFixit has learned.',
       createAt: DateTime.now(),
     ));
     super.initState();
