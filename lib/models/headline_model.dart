@@ -12,6 +12,12 @@ class HeadlineModel with ChangeNotifier {
 
   List<News> get newsList => _newsList;
 
+  HeadlineModel() {
+    if (newsList.isEmpty) {
+      fetchNews();
+    }
+  }
+
   void fetchNews() async {
     _isLoading = true;
     notifyListeners();

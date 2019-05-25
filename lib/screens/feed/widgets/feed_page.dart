@@ -15,9 +15,6 @@ class _FeedPageState extends State<FeedPage> {
   @override
   void didChangeDependencies() {
     model = Provider.of<HeadlineModel>(context);
-    if (model.newsList.isEmpty) {
-      model.fetchNews();
-    }
     super.didChangeDependencies();
   }
 
@@ -29,19 +26,24 @@ class _FeedPageState extends State<FeedPage> {
           ? Center(
               child: CircularProgressIndicator(),
             )
-          : ListView.builder(
-              itemCount: model.newsList.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: GestureDetector(
-                    onTap: () {
-                      openDetailPage(model.newsList[index]);
-                    },
-                    child: NewsCard(model.newsList[index]),
-                  ),
-                );
-              }),
+          : RefreshIndicator(
+              child: ListView.builder(
+                  itemCount: model.newsList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(top: 20),
+                      child: GestureDetector(
+                        onTap: () {
+                          openDetailPage(model.newsList[index]);
+                        },
+                        child: NewsCard(model.newsList[index]),
+                      ),
+                    );
+                  }),
+              onRefresh: () async {
+                model.fetchNews();
+              },
+            ),
     );
   }
 

@@ -11,7 +11,7 @@ class NewsReaderApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Provider<HeadlineModel>(
+    return ChangeNotifierProvider<HeadlineModel>(
       builder: (_) => HeadlineModel(),
       child: MaterialApp(
         title: _config.appName,

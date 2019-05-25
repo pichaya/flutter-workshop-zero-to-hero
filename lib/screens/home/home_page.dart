@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      body: pageIndex == 1 ? FeedPage() : Container(),
+      body: pageIndex == 0 ? FeedPage() : Container(),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         items: <BottomNavigationBarItem>[
